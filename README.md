@@ -8,7 +8,7 @@
 * Subtraction
 * Division ( displays E for 0 divisions)
 * Multiplication
-* Square root - 
+* Square root of given value 
 * PI (formatted to two decimals - populates input field, can be used for operations)
 * Retrieve last result
 * Clear memory
