@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+              integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+        <title>Main Menu </title>
+        <style>
+            textarea {
+                resize: none;
+            }
+
+        </style>
+
+    </head>
+  <body>
+    <div class="container">
+
+        <br>
+            <H1>Calculator</H1>
+
+
+
+    <label>History</label>
+
+        <textarea class="form-control" rows="4" cols="50" th:text="${historyRes}" id="historyBox"></textarea>
+
+            <hr>
+
+    <label>Result</label>
+
+        <textarea class="form-control" rows="4" cols="50" th:text="${result}" id="resultBox"></textarea>
+
+
+
+         <hr>
+
+        <form action="#" th:action="${calculator}" th:object="${calc}" name="form" method="POST">
+
+            <!-- Inputs -->
+            <input type="number" step='any' placeholder="insert number"  th:value="${inputValue}" name="firstStringNumber" id="name"/>
+
+            <input type="hidden" th:field="*{operation}" id="operation"/>
+
+            <br><br>
+
+            <!--Add button -->
+            <input type="submit" class="btn btn-primary btn-sm mb-3" name="add" value="+"
+
+                   onclick="document.getElementById('operation').value='+';"/>
+
+
+
+            <!--Sub button -->
+            <input type="submit" class="btn btn-primary btn-sm mb-3" name="subtract" value="-"
+                   onclick="document.getElementById('operation').value='-'"/>
+
+            <!--Div button -->
+            <input type="submit" class="btn btn-primary btn-sm mb-3" name="divide" value="/"
+                   onclick="document.getElementById('operation').value='/'"/>
+
+
+            <br>
+
+
+            <!--Mult button -->
+            <input type="submit" class="btn btn-primary btn-sm mb-3" name="multiply" value="*"
+                   onclick="document.getElementById('operation').value='*'"/>
+
+            <!--Sqrt button -->
+            <input type="submit" class="btn btn-primary btn-sm mb-3" name="squareroot" value="&#8730;"
+                   onclick="document.getElementById('operation').value='sqrt'"/>
+
+
+
+            <!--Pi button -->
+            <button type="button" class="btn btn-primary btn-sm mb-3" onclick="setPI()">&#960;</button>
+
+                    <script>
+                        function setPI() {
+                            var pi = Math.round(Math.PI * 100) / 100;
+                            document.form.firstStringNumber.value = pi;
+                        }
+                    </script>
+
+
+            <br>
+            <!--Clear button -->
+            <a href="/calculator" class="btn btn-primary btn-sm mb-3">C</a>
+            <input type="submit" class="btn btn-primary btn-sm mb-3" name="equal" value="="/>
+            <input type="submit" class="btn btn-primary btn-sm mb-3" name="answer" value="Ans"/>
+            </form>
+
+        </div>
+
+  </body>
+
+</html>
