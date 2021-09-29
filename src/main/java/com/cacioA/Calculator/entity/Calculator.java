@@ -5,19 +5,17 @@ package com.cacioA.Calculator.entity;
 import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 
 @Component
 public class Calculator {
 
-   // @NotNull(message = "can't be empty")
-    @NotBlank(message="not blank")
+
     private double number;
     private double secondNumber;
     private String operation;
-
-
     private String firstStringNumber;
 
     public Calculator(){
@@ -41,11 +39,9 @@ public class Calculator {
         return this.number;
     }
 
-
     public void setNumber(double number) {
         this.number = number;
     }
-
 
     public double getSecondNumber() {
         return secondNumber;
@@ -54,6 +50,7 @@ public class Calculator {
     public void setSecondNumber(double secondNumber) {
         this.secondNumber = secondNumber;
     }
+
     public String getFirstStringNumber() {
         return firstStringNumber;
     }

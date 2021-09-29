@@ -107,7 +107,7 @@ public class CalculatorController {
         if(result.hasErrors()){
 
         }
-        //this.calc.setFirstStringNumber(calculator.getFirstStringNumber());
+
 
         model.addAttribute("result", calculatorServiceImpl.sqrt(calculator));
         model.addAttribute("historyRes", calculatorServiceImpl.getCalculationsHistory());
@@ -124,7 +124,10 @@ public class CalculatorController {
         }
 
 
-
+        if(calculator.getFirstStringNumber().equals("")){
+            model.addAttribute("result","No second number selected. Please clear and try again.");
+            return "mainScreen";
+        }
         this.calc.setSecondNumber(Double.parseDouble((calculator.getFirstStringNumber())));
 
         if(calculator.getOperation().equals("+")){

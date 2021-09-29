@@ -18,6 +18,7 @@ public class DaoCalcHistoryImpl {
 
     public void saveCalculation(Calculator calculator) {
         if(calculator.getFirstStringNumber().isBlank()){
+            // if firstStringNumber is blank -> continuing operation, no need for first number
             this.calcHistory.add(calculator.getOperation()+ calculator.getSecondNumber());
             return;
         }
@@ -87,6 +88,7 @@ public class DaoCalcHistoryImpl {
     public double doSqrt(Calculator calculator) {
         double result = Double.parseDouble(calculator.getFirstStringNumber());
         if(result < 0) { return 0;}
+
         this.totalSum=Math.sqrt(result);
         calculator.setNumber(result);
 
